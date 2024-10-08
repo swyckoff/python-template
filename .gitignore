@@ -1,0 +1,33 @@
+# Python bytecode and cache files
+*.pyc
+__pycache__/
+.mypy_cache/
+
+# Build directories and output
+/dist/*
+/build/
+out/
+designs/
+mocks
+temp
+
+# Logs and temporary files
+logs/
+.DS_Store
+
+# IDE and environment-specific files
+.idea/*
+.vscode/*
+.python-version
+.venv
+.env
+
+# Documentation
+/docs/site/*
+
+# Poetry configuration
+/poetry.toml
+
+# Test/coverage reports and related files
+.coverage
+.pytest_cache
