@@ -2,11 +2,7 @@
 
 ## Create a tar for a new proj
 
-Create a copy of this locally with
-
-```bash
-tar --exclude='.mypy_cache' -cvf  pythontemplate.tar.gz python-project
-```
+### Setup
 
 1. Install `just` in order of preference:
 
@@ -16,3 +12,11 @@ tar --exclude='.mypy_cache' -cvf  pythontemplate.tar.gz python-project
    1. **Linux/Ubuntu** Needs0
       [Prebuilt-MPR](https://docs.makedeb.org/prebuilt-mpr/getting-started/#setting-up-the-repository)
       `sudo apt install just`
+
+### Packaging
+
+Create a copy of this locally with
+
+```bash
+just package
+```
