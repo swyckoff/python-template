@@ -18,7 +18,7 @@ pip install pip poetry setuptools wheel -U --no-cache-dir
 Target poetry to the python version with
 
 ```bash
-poetry use `which python`
+poetry env use `which python`
 ```
 
 #### If you have an outdated `requirements.txt`
