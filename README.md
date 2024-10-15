@@ -1,5 +1,11 @@
 # PROJECT SETUP
 
+Create a copy of this locally with
+
+```bash
+tar --exclude='.mypy_cache' -cvf  pythontemplate.tar.gz python-project
+```
+
 ## Setup
 
 1. Create a new conda environment to install your target python
@@ -29,7 +35,7 @@ Populate requirements-dev.tx and requirements.txt and install them using poetry
 while read requirement; do poetry add "$requirement"; done < requirements.txt
 ```
 
-### Using pyproject.toml
+### Else: Use pyproject.toml
 
 Run `poetry install`
 
