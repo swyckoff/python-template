@@ -49,9 +49,10 @@ jupyterlab = "^4.2.5"
 notebook = "^7.2.2"
 matplotlib = "^3.9.2"
 types-colorama = "^0.4.15.20240311"
+rich = "^13.9.2"
 
 [tool.poetry.scripts]
-entry = "src.server.app:run" # TODO replace
+entry = "src.entry.app:run" # TODO replace
 
 [build-system]
 requires = ["poetry-core"]
