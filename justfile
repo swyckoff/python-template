@@ -30,6 +30,7 @@ package:
 	@echo "🔁 Temporarily replacing README.md with template-README.md"
 	@mv README.md README.md.bak 
 	@cp template-README.md README.md 
+	@echo "📦 Create the archive"
 	@tar --exclude='.mypy_cache' --exclude='__pycache__' --exclude='justfile' --exclude='.git' --exclude='README.md.bak' -cvf pythontemplate.tar.gz .
 	@echo "🔁 Reverting README.md.bak to README.md"
 	@rm README.md 
