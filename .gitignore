@@ -31,3 +31,6 @@ logs/
 # Test/coverage reports and related files
 .coverage
 .pytest_cache
+
+# Just the package repo
+pythontemplate.tar.gz
