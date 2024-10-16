@@ -35,3 +35,12 @@ package:
 	@echo "🔁 Reverting README.md.bak to README.md"
 	@mv README.md template-README.md
 	@mv README.md.bak README.md 
+
+
+[private]
+alias t := test
+# 🧪 perform tests. pytest FLAGS 🚩
+test *FLAGS: 
+	@echo "🧪 More Examples: just test -s --pdb --pdbcls=IPython.terminal.debugger:TerminalPdb -k 'test_SPECIFIC_METHOD' tests/A_DIR/test_NAME.py"
+	@echo "🧪 performing tests.";
+	@python -m pytest {{FLAGS}}
