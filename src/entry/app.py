@@ -1,15 +1,21 @@
 from logging import WARNING
 
 from attr import dataclass
-from tenacity import retry  # type: ignore
-from tenacity import before_sleep_log, stop_after_attempt, wait_fixed
+from tenacity import (
+    before_sleep_log,
+    retry,  # type: ignore
+    stop_after_attempt,
+    wait_fixed,
+)
 
-from common.better_logger import log_critical  # noqa: F401
-from common.better_logger import log_debug  # noqa: F401
-from common.better_logger import log_error  # noqa: F401
-from common.better_logger import log_info  # noqa: F401
-from common.better_logger import log_warning  # noqa: F401
-from common.better_logger import logger
+from common.better_logger import (
+    log_critical,  # noqa: F401
+    log_debug,  # noqa: F401
+    log_error,  # noqa: F401
+    log_info,  # noqa: F401
+    log_warning,  # noqa: F401
+    logger,
+)
 from common.settings import settings
 
 
@@ -31,3 +37,7 @@ class MyClass:
 def run():
     my_class = MyClass(settings.host, settings.port)
     my_class.run()
+
+
+if __name__ == "__main__":
+    run()
