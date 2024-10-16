@@ -31,7 +31,7 @@ package:
 	@mv README.md README.md.bak 
 	@mv template-README.md README.md 
 	@echo "📦 Create the archive"
-	@tar --exclude='.mypy_cache' --exclude='__pycache__' --exclude='justfile' --exclude='.git' --exclude='README.md.bak' --exclude="pythontemplate.tar.gz" -cvf pythontemplate.tar.gz .
+	@tar --exclude='.pytest_cache'  --exclude='.mypy_cache' --exclude='__pycache__' --exclude='justfile' --exclude='.git' --exclude='README.md.bak' --exclude="pythontemplate.tar.gz" -cvf pythontemplate.tar.gz .
 	@echo "🔁 Reverting README.md.bak to README.md"
 	@mv README.md template-README.md
 	@mv README.md.bak README.md 
