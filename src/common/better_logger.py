@@ -1,9 +1,9 @@
-import logging
-
-from pathlib import Path
 import datetime as dt
+import logging
 from logging import FileHandler, StreamHandler
-from colorama import init, Fore, Style
+from pathlib import Path
+
+from colorama import Fore, Style, init
 
 # Initialize Colorama
 init()
@@ -79,21 +79,26 @@ def get_default_logger():
     return logger
 
 
-def log_info(message):
-    get_default_logger().info(str(message))
+def log_info(*args):
+    message = " ".join(map(str, args))
+    get_default_logger().info(message)
 
 
-def log_debug(message):
-    get_default_logger().debug(str(message))
+def log_debug(*args):
+    message = " ".join(map(str, args))
+    get_default_logger().debug(message)
 
 
-def log_warning(message):
-    get_default_logger().warning(str(message))
+def log_warning(*args):
+    message = " ".join(map(str, args))
+    get_default_logger().warning(message)
 
 
-def log_error(message):
-    get_default_logger().error(str(message))
+def log_error(*args):
+    message = " ".join(map(str, args))
+    get_default_logger().error(message)
 
 
-def log_critical(message):
-    get_default_logger().critical(str(message))
+def log_critical(*args):
+    message = " ".join(map(str, args))
+    get_default_logger().critical(message)
