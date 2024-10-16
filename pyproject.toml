@@ -13,7 +13,8 @@ classifiers = [
 ]
 
 packages = [
-    { include = "common", from = "src" }
+    { include = "common", from = "src" },
+    { include = "entry", from = "src" }
 ]
 
 [tool.poetry.dependencies]
