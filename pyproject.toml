@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "TODO"
+name = "TEMPLATE"
 version = "0.2.0"
 description = ""
 authors = ["Steve Wyckoff <stevewyckoffdev@gmail.com>"]
@@ -31,6 +31,7 @@ colorama = "^0.4.6"
 # asyncio = "^3.4.3"
 pydantic-settings = "^2.5.2"
 # faker = "^30.1.0"
+tenacity = "^9.0.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2"
