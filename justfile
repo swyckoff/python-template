@@ -6,20 +6,22 @@ default:
 
 # What this repo does and how it works, in brief.
 why:
-	#!/bin/sh
-	cat <<'EOF'
-	python-template is a starter for small Python projects and interview exercises:
-	Poetry, a src/ layout, pytest, colored logging and typed settings.
+	#!/usr/bin/env bash
+	render() { if command -v rich >/dev/null; then rich --markdown --max-width 100 -; echo; else cat; fi; }
+	render <<'EOF'
+	# python-template
 
-	How it works
-	  - src/entry/app.py is the entry point. src/common holds the logger and settings.
-	  - tests/ mirrors src/ and runs with pytest.
-	  - `just package` builds pythontemplate.tar.gz, a clean copy to start a new project
-	    from, with template-README.md as its README.
+	A starter for small Python projects and interview exercises: Poetry, a `src/` layout, pytest, colored logging and typed settings.
 
-	How it runs
-	  - Nothing runs in the background. Follow template-README.md to set up conda and
-	    Poetry, then `just test`.
+	## How it works
+
+	- `src/entry/app.py` is the entry point. `src/common` holds the logger and settings.
+	- `tests/` mirrors `src/` and runs with pytest.
+	- `just package` builds `pythontemplate.tar.gz`, a clean copy to start a new project from, with `template-README.md` as its README.
+
+	## How it runs
+
+	- **Nothing runs in the background.** Follow `template-README.md` to set up conda and Poetry, then `just test`.
 	EOF
 
 [private]
