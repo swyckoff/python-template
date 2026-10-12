@@ -24,6 +24,23 @@ why:
     - **Nothing runs in the background.** Follow `template-README.md` to set up conda and Poetry, then `just test`.
     EOF
 
+# How to use this repo: the commands to run and what each does.
+how:
+    #!/usr/bin/env bash
+    render() { if command -v rich >/dev/null; then rich --markdown --max-width 100 -; echo; else cat; fi; }
+    render <<'EOF'
+    # Using python-template
+
+    | Run | To |
+    |---|---|
+    | `just package` | Build `pythontemplate.tar.gz`, a clean copy to start a new project from. Unpack it and follow its README. |
+    | `poetry install` | Set up this checkout, in a conda environment with Python 3.12 (`template-README.md`). |
+    | `poetry run python src/entry/app.py` | Run the entry point. |
+    | `just test` | Run pytest. Flags pass through: `just test -k name`. |
+
+    Start with `just package` for a new project, or `just test` when changing the template.
+    EOF
+
 [private]
 _validate_conda_exists:
     @if command -v conda > /dev/null 2>&1 ; then \
