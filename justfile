@@ -17,7 +17,8 @@ why:
 
     - `src/entry/app.py` is the entry point. `src/common` holds the logger and settings.
     - `tests/` mirrors `src/` and runs with pytest.
-    - `just package` builds `pythontemplate.tar.gz`, a clean copy to start a new project from, with `template-README.md` as its README.
+    - `just build` makes `pythontemplate.tar.gz`, a clean copy to start a new project from, with `template-README.md` as its README.
+    - `just check` is the merge gate: `check-justfile`, then pytest. There is no CI; run it before merging.
 
     ## How it runs
 
@@ -33,12 +34,13 @@ how:
 
     | Run | To |
     |---|---|
-    | `just package` | Build `pythontemplate.tar.gz`, a clean copy to start a new project from. Unpack it and follow its README. |
+    | `just build` | Build `pythontemplate.tar.gz`, a clean copy to start a new project from. Unpack it and follow its README. |
     | `poetry install` | Set up this checkout, in a conda environment with Python 3.12 (`template-README.md`). |
     | `poetry run python src/entry/app.py` | Run the entry point. |
     | `just test` | Run pytest. Flags pass through: `just test -k name`. |
+    | `just check` | Run everything a merge needs: `check-justfile`, then the tests. |
 
-    Start with `just package` for a new project, or `just test` when changing the template.
+    Start with `just build` for a new project, or `just check` when changing the template.
     EOF
 
 [private]
@@ -59,9 +61,15 @@ _validate_env_name_set:
         exit 1; \
     fi
 
-alias p := package
-# Package this template as pythontemplate.tar.gz, a clean start for a new project.
-package:
+alias c := check
+# Run everything a merge needs, without changing a file: the justfile convention, then the tests.
+check:
+    check-justfile
+    python -m pytest
+
+alias b := build
+# Build pythontemplate.tar.gz, a clean start for a new project.
+build:
     @echo "📦 Package a new python project template"
     @echo "🔁 Temporarily replacing README.md with template-README.md"
     @mv README.md README.md.bak
@@ -73,7 +81,7 @@ package:
     @mv README.md.bak README.md
 
 alias t := test
-# 🧪 perform tests. pytest FLAGS 🚩
+# Run the tests. Flags go to pytest: `just test -k name`.
 test *FLAGS:
     @echo "🧪 More Examples: just test -s --pdb --pdbcls=IPython.terminal.debugger:TerminalPdb -k 'test_SPECIFIC_METHOD' tests/A_DIR/test_NAME.py"
     @echo "🧪 performing tests.";

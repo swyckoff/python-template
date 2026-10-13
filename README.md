@@ -18,5 +18,11 @@
 Create a copy of this locally with
 
 ```bash
-just package
+just build
 ```
+
+## Shipping a change
+
+Work on a branch and open a PR against `main`. There is no CI: run `just check` (the justfile
+convention via `check-justfile`, then pytest) before merging. Nothing is released or deployed;
+`just build` makes the archive whenever a new project needs one.
